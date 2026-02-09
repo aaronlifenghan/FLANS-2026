@@ -132,8 +132,8 @@ def extract_intro_sentences(
     wiki,
     topics,
     lang,
-    max_chars=2000,      # 每个词条最多取多少字符（防止太长）
-    max_sents=20         # 每个词条最多取多少句（防止句子太多）
+    max_chars=2000,      
+    max_sents=20        
 ):
     sentences = []
 
@@ -143,17 +143,13 @@ def extract_intro_sentences(
             print(f"[WARN] Page not found: {wiki.language}:{topic}")
             continue
 
-        # 1) 用 summary（导语）优先；没有 summary 再退回全文
         text = (page.summary or page.text or "").strip()
         if not text:
             continue
 
-        # 2) 截断：避免太长导致噪音+embedding慢
         text = text[:max_chars]
 
-        # 3) 分句：中文 / 英文 / 西语分别处理
         if lang == "zh":
-            # 中文简单分句：按 。！？；换行 切
             parts = re.split(r"[。！？；;\n]+", text)
             parts = [p.strip() for p in parts if len(p.strip()) > 5]
             sentences.extend(parts[:max_sents])
