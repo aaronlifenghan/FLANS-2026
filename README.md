@@ -16,3 +16,6 @@ Please cite our work if you use the shared resources such as KB, codes, prompts,
 
 Code instruction:
 Liliia: RAG-web and Shiran: RAG-base
+
+Contact: in the preprint |
+LIACS, Leiden University 
