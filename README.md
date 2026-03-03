@@ -13,3 +13,6 @@ Please cite our work if you use the shared resources such as KB, codes, prompts,
       primaryClass={cs.CL},
       url={https://arxiv.org/abs/2603.01910}, 
 }
+
+Code instruction:
+Liliia: RAG-web and Shiran: RAG-base
